@@ -14,14 +14,14 @@ datasource db {
 }
 
 model Drink {
-  id    String @id @default(uuid())
+  id    Int @id @default(autoincrement())
   name  String
   description String
   price Int
   color String
   percentAlcohol  Int
   amargor  Int
-  flavour  Int
+  flavour  String // actualizar la base de datos npx prisma db push
   transparency String
   type DrinkType
 }
@@ -30,6 +30,5 @@ enum DrinkType {
   BEER
   COCKTAIL
   WINE
-  WHISKEY
   OTHER
 }
