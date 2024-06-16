@@ -17,18 +17,11 @@ model Drink {
   id    Int @id @default(autoincrement())
   name  String
   description String
+  slug String @unique // slug es un termino general para identificar el modelo que se esta creando de en la base de datos y se usa para buscar y setear la url de la pagina de mejor forma que usando el nombre del modelo.
   price Int
-  color String
-  percentAlcohol  Int
-  amargor  Int
-  flavour  String // actualizar la base de datos npx prisma db push
-  transparency String
-  type DrinkType
-}
+  percentAlcohol Int
+  amargor  String
+  flavour  String
 
-enum DrinkType {
-  BEER
-  COCKTAIL
-  WINE
-  OTHER
+  @@index(slug) // mejora el performance si tenemos que hacer busquedas del modelo, pasamos por argumento el nombre del atributo que queremos usar como clave de búsqueda
 }
