@@ -22,6 +22,15 @@ model Drink {
   percentAlcohol Int
   amargor  String
   flavour  String
+  tipo typeDrink
 
   @@index(slug) // mejora el performance si tenemos que hacer busquedas del modelo, pasamos por argumento el nombre del atributo que queremos usar como clave de búsqueda
+}
+
+enum typeDrink {
+  sin_alcohol
+  con_alcohol
+  vino
+  cerveza 
+  espumante
 }
