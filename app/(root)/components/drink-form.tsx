@@ -14,15 +14,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import axios from "axios";
-
-const formSchema = z.object({
-  name: z.string(),
-  description: z.string(),
-  price: z.string(),
-  percentAlcohol: z.string(),
-  amargor: z.string(),
-  flavour: z.string(),
-});
+import { formSchema } from "@/constants/schema";
 
 type ProductFormValues = z.infer<typeof formSchema>;
 
