@@ -9,29 +9,33 @@ import {
   FormControl,
   FormField,
   FormItem,
-  FormLabel,
   FormMessage,
+  FormLabel,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import axios from "axios";
 import { formSchema } from "@/constants/schema";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 type ProductFormValues = z.infer<typeof formSchema>;
 
-export default function DrinkForm() {
+type TypeOfDrinks = {
+  typeOfDrinks: any[];
+};
+
+export default function DrinkForm({ typeOfDrinks }: TypeOfDrinks) {
   const form = useForm<ProductFormValues>({
     resolver: zodResolver(formSchema),
-    defaultValues: {
-      name: "",
-      description: "",
-      price: "",
-      percentAlcohol: "",
-      amargor: "",
-      flavour: "",
-    },
   });
 
   const onSubmit = async (data: ProductFormValues) => {
+    console.log({ data });
     try {
       await axios.post("/api/drinks", data);
     } catch (e) {
@@ -122,6 +126,38 @@ export default function DrinkForm() {
               <FormControl>
                 <Input placeholder="por ejemplo: afrutado" {...field} />
               </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
+        <FormField
+          control={form.control}
+          name="typeId"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Tipo de bebida</FormLabel>
+              <Select
+                onValueChange={field.onChange}
+                value={field.value}
+                defaultValue={field.value}
+              >
+                <FormControl>
+                  <SelectTrigger>
+                    <SelectValue
+                      placeholder="Elegí el tipo de bebida"
+                      defaultValue={field.value}
+                    />
+                  </SelectTrigger>
+                </FormControl>
+                <SelectContent>
+                  {typeOfDrinks.map((type) => (
+                    <SelectItem key={type.id} value={type.id}>
+                      {type.nameOfType}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
               <FormMessage />
             </FormItem>
           )}

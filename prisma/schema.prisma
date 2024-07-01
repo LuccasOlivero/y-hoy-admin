@@ -13,24 +13,26 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Drink {
-  id    Int @id @default(autoincrement())
-  name  String
-  description String
-  slug String @unique // slug es un termino general para identificar el modelo que se esta creando de en la base de datos y se usa para buscar y setear la url de la pagina de mejor forma que usando el nombre del modelo.
-  price Int
-  percentAlcohol Int
-  amargor  String
-  flavour  String
-  tipo typeDrink
+model TypeDrink {
+  id          String    @id @default(uuid())
+  nameOfType  String    
 
-  @@index(slug) // mejora el performance si tenemos que hacer busquedas del modelo, pasamos por argumento el nombre del atributo que queremos usar como clave de búsqueda
+  drink      Drink[]
 }
 
-enum typeDrink {
-  sin_alcohol
-  con_alcohol
-  vino
-  cerveza 
-  espumante
+model Drink {
+  id            String       @id @default(uuid())
+  name          String
+  description   String
+  slug          String 
+  price         Int
+  percentAlcohol Int
+  amargor       String
+  flavour       String
+
+  typeId        String
+  type          TypeDrink @relation(fields: [typeId], references: [id])
+
+  @@index([slug])
+  @@index([typeId])
 }

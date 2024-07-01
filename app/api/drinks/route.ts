@@ -16,7 +16,15 @@ export async function POST(req: Request) {
   try {
     const body = await req.json();
 
-    const { name, description, price, percentAlcohol, amargor, flavour } = body;
+    const {
+      name,
+      description,
+      price,
+      percentAlcohol,
+      amargor,
+      flavour,
+      typeId,
+    } = body;
 
     if (!name) {
       return new NextResponse("Missing name", { status: 400 });
@@ -42,15 +50,20 @@ export async function POST(req: Request) {
       return new NextResponse("Missing flavour", { status: 400 });
     }
 
+    if (!typeId) {
+      return new NextResponse("Missing type", { status: 400 });
+    }
+
     const drinks = await prisma.drink.create({
       data: {
         name,
         description,
         price: Number(price),
-        slug: name,
+        slug: name.toLowerCase().replaceAll(" ", "-"),
         percentAlcohol: Number(percentAlcohol),
         amargor,
         flavour,
+        typeId,
       },
     });
 

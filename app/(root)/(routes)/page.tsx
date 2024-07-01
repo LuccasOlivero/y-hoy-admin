@@ -4,8 +4,10 @@ import DrinkForm from "../components/drink-form";
 import Header from "../components/header";
 import Logo from "../components/logo";
 import Container from "../components/container";
+import prisma from "@/lib/db";
 
-export default function Home() {
+export default async function Home() {
+  const typeOfDrinks = await prisma.typeDrink.findMany();
   // const [isMounted, setIsMounted] = useState<boolean>(false);
 
   // useEffect(() => {
@@ -24,7 +26,7 @@ export default function Home() {
         <Separator />
 
         <div className="w-full flex justify-center mt-4">
-          <DrinkForm />
+          <DrinkForm typeOfDrinks={typeOfDrinks} />
         </div>
       </Container>
     </div>

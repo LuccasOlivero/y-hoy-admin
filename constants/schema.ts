@@ -7,4 +7,5 @@ export const formSchema = z.object({
   percentAlcohol: z.string(),
   amargor: z.string(),
   flavour: z.string(),
+  typeId: z.string(),
 });
