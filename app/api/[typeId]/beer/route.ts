@@ -1,9 +1,20 @@
 import prisma from "@/lib/db";
 import { NextResponse } from "next/server";
 
-export async function GET(_req: Request) {
+export async function GET(
+  _req: Request,
+  { params }: { params: { typeId: string } }
+) {
   try {
-    const drinks = await prisma.drink.findMany();
+    if (!params.typeId) {
+      return new NextResponse("Missing typeId", { status: 400 });
+    }
+
+    const drinks = await prisma.drink.findMany({
+      where: {
+        typeId: params.typeId,
+      },
+    });
 
     return NextResponse.json(drinks);
   } catch (e) {
