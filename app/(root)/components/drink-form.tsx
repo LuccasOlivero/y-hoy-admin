@@ -22,36 +22,43 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { toast, useToast } from "@/components/ui/use-toast";
+import { useToast } from "@/components/ui/use-toast";
 
 type ProductFormValues = z.infer<typeof formSchema>;
 
+//TODO: fix this
 type TypeOfDrinks = {
   typeOfDrinks: any[];
 };
 
 export default function DrinkForm({ typeOfDrinks }: TypeOfDrinks) {
   const { toast } = useToast();
+
   const form = useForm<ProductFormValues>({
     resolver: zodResolver(formSchema),
   });
 
   const onSubmit = async (data: ProductFormValues) => {
-    console.log({ data });
     try {
       //TODO: add validation and fix api call
-      await axios.post("/api/drinks", data);
+      const { typeId } = data;
+      console.log(`/api/${typeId}`);
+
+      await axios({
+        method: "POST",
+        url: `/api/alcoholic`,
+        data,
+      });
 
       toast({
         title: "Bebida creada exitosamente",
       });
     } catch (e) {
-      console.error(e, "FORM ERROR");
-
       toast({
         title: "Error al crear la bebida",
         variant: "destructive",
       });
+      console.error(e, "FORM ERROR");
     }
   };
 
