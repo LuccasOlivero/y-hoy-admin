@@ -26,12 +26,16 @@ import { useToast } from "@/components/ui/use-toast";
 
 type ProductFormValues = z.infer<typeof formSchema>;
 
-//TODO: fix this
-type TypeOfDrinks = {
-  typeOfDrinks: any[];
-};
+interface DrinkType {
+  id: string;
+  nameOfType: string;
+}
 
-export default function DrinkForm({ typeOfDrinks }: TypeOfDrinks) {
+interface DrinkFormProps {
+  typeOfDrinks: DrinkType[];
+}
+
+export default function DrinkForm({ typeOfDrinks }: DrinkFormProps) {
   const { toast } = useToast();
 
   const form = useForm<ProductFormValues>({
@@ -42,8 +46,6 @@ export default function DrinkForm({ typeOfDrinks }: TypeOfDrinks) {
     try {
       //TODO: add validation and fix api call
       const { typeId } = data;
-      console.log(`/api/${typeId}`);
-
       await axios({
         method: "POST",
         url: `/api/alcoholic`,

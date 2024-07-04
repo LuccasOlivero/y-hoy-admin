@@ -1,10 +1,10 @@
 import { Separator } from "@/components/ui/separator";
 
-import DrinkForm from "../components/drink-form";
 import Header from "../components/header";
 import Logo from "../components/logo";
 import Container from "../components/container";
 import prisma from "@/lib/db";
+import DrinkForm from "./components/drink-form";
 
 export default async function Home() {
   const typeOfDrinks = await prisma.typeDrink.findMany();
