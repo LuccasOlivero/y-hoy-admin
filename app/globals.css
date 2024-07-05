@@ -9,7 +9,7 @@ body:root {
 }
 
 .bg-custom {
-  background-image: url("https://media.istockphoto.com/id/1134068329/es/foto/violeta-p%C3%BArpura-y-azul-marino-descentrado-movimiento-difuminado-degradado-fondo-abstracto.jpg?s=612x612&w=0&k=20&c=QAyA_tvJpbchhkcqNGkhyyhJd7jDbIzEGP-U21TdUoI=");
+  background-image: url("/fondo.jpg");
   background-size: cover;
   background-position: center;
   width: 100%;
