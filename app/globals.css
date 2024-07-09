@@ -16,3 +16,12 @@ body:root {
   min-height: 100%;
   position: absolute;
 }
+
+.text-stroke-title {
+  position: absolute;
+  bottom: -3px;
+  left: -5px;
+  -webkit-text-stroke: 0.5px #a98a4d;
+  color: transparent;
+  text-transform: uppercase;
+}

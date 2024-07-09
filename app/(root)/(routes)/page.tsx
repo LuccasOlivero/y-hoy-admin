@@ -22,7 +22,7 @@ export default async function Home() {
     <div className="flex flex-col items-center w-full">
       <Container>
         <Logo />
-        <Header />
+        <Header>Administrador</Header>
         <Separator />
 
         <div className="w-full flex justify-center mt-4">
