@@ -45,11 +45,9 @@ export default function DrinkForm({ typeOfDrinks }: DrinkFormProps) {
   const onSubmit = async (data: ProductFormValues) => {
     try {
       //TODO: add validation and fix api call
-      const { typeId } = data;
-
       await axios({
         method: "POST",
-        url: `/api/${typeId}`,
+        url: `/api/drink`,
         data,
       });
 
