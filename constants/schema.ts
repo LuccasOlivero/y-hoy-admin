@@ -9,3 +9,7 @@ export const formSchema = z.object({
   flavour: z.string(),
   typeId: z.string(),
 });
+
+export const formSchemaType = z.object({
+  typeName: z.string(),
+});

@@ -46,9 +46,10 @@ export default function DrinkForm({ typeOfDrinks }: DrinkFormProps) {
     try {
       //TODO: add validation and fix api call
       const { typeId } = data;
+
       await axios({
         method: "POST",
-        url: `/api/alcoholic`,
+        url: `/api/${typeId}`,
         data,
       });
 
@@ -72,7 +73,9 @@ export default function DrinkForm({ typeOfDrinks }: DrinkFormProps) {
           name="name"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Nombre de la bebida</FormLabel>
+              <FormLabel className="text-[#267b40] font-bold text-base">
+                Nombre de la bebida
+              </FormLabel>
               <FormControl>
                 <Input placeholder="por ejemplo: Coca Cola" {...field} />
               </FormControl>
@@ -85,7 +88,9 @@ export default function DrinkForm({ typeOfDrinks }: DrinkFormProps) {
           name="description"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Descripción</FormLabel>
+              <FormLabel className="text-[#267b40] font-bold text-base">
+                Descripción
+              </FormLabel>
               <FormControl>
                 <Input
                   placeholder="por ejemplo: trago intenso y suave a pasar por la garganta"
@@ -101,7 +106,9 @@ export default function DrinkForm({ typeOfDrinks }: DrinkFormProps) {
           name="price"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Precio</FormLabel>
+              <FormLabel className="text-[#267b40] font-bold text-base">
+                Precio
+              </FormLabel>
               <FormControl>
                 <Input type="number" {...field} />
               </FormControl>
@@ -115,7 +122,9 @@ export default function DrinkForm({ typeOfDrinks }: DrinkFormProps) {
           name="percentAlcohol"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Porcentaje de alcohol</FormLabel>
+              <FormLabel className="text-[#267b40] font-bold text-base">
+                Porcentaje de alcohol
+              </FormLabel>
               <FormControl>
                 <Input type="number" placeholder="por ejemplo: 5%" {...field} />
               </FormControl>
@@ -129,7 +138,9 @@ export default function DrinkForm({ typeOfDrinks }: DrinkFormProps) {
           name="amargor"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Amargor</FormLabel>
+              <FormLabel className="text-[#267b40] font-bold text-base">
+                Amargor
+              </FormLabel>
               <FormControl>
                 <Input placeholder="por ejemplo: 10" {...field} />
               </FormControl>
@@ -143,7 +154,9 @@ export default function DrinkForm({ typeOfDrinks }: DrinkFormProps) {
           name="flavour"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Sabor y aroma</FormLabel>
+              <FormLabel className="text-[#267b40] font-bold text-base">
+                Sabor y aroma
+              </FormLabel>
               <FormControl>
                 <Input placeholder="por ejemplo: afrutado" {...field} />
               </FormControl>
@@ -157,7 +170,9 @@ export default function DrinkForm({ typeOfDrinks }: DrinkFormProps) {
           name="typeId"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Tipo de bebida</FormLabel>
+              <FormLabel className="text-[#267b40] font-bold text-base">
+                Tipo de bebida
+              </FormLabel>
               <Select
                 onValueChange={field.onChange}
                 value={field.value}
