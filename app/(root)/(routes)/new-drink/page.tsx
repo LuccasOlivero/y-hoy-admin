@@ -1,6 +1,6 @@
 import prisma from "@/lib/db";
 import DrinkForm from "./components/drink-form";
-import Header from "../../components/header";
+import Header from "../../../../components/ui/header";
 import { Separator } from "@/components/ui/separator";
 import Container from "../../components/container";
 

@@ -1,6 +1,6 @@
 import { Separator } from "@/components/ui/separator";
 
-import Header from "../components/header";
+import Header from "../../../components/ui/header";
 import Logo from "../components/logo";
 import Container from "../components/container";
 import Link from "next/link";

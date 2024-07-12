@@ -1,5 +1,5 @@
 import prisma from "@/lib/db";
-import Header from "../../components/header";
+import Header from "../../../../components/ui/header";
 import { Separator } from "@/components/ui/separator";
 import Container from "../../components/container";
 import TypeDrinkForm from "./components/type-drink-form";
