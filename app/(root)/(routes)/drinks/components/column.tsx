@@ -4,6 +4,7 @@ import { ColumnDef } from "@tanstack/react-table";
 import { CellAction } from "./cell-action";
 
 export type DrinksColumn = {
+  id: string;
   name: string;
   description: string;
   price: number;

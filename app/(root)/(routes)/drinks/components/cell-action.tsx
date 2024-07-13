@@ -35,10 +35,7 @@ export function CellAction({ data }: cellActionProps) {
     try {
       setLoading(true);
 
-      await axios({
-        method: "DELETE",
-        url: `/api`,
-      });
+      await axios.delete(`/api/drink/${data.id}`);
 
       router.refresh();
 
@@ -74,7 +71,7 @@ export function CellAction({ data }: cellActionProps) {
 
         <DropdownMenuContent align="end" className="bg-[#A98A4D] text-white">
           <DropdownMenuLabel>Opciones</DropdownMenuLabel>
-          <DropdownMenuItem onClick={() => router.push(`#`)}>
+          <DropdownMenuItem onClick={() => router.push(`/drinks/${data.id}`)}>
             <Edit className="mr-2 h-4 w-4" />
             Editar
           </DropdownMenuItem>

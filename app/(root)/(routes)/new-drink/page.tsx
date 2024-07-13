@@ -1,11 +1,13 @@
 import prisma from "@/lib/db";
-import DrinkForm from "./components/drink-form";
-import Header from "../../../../components/ui/header";
+
 import { Separator } from "@/components/ui/separator";
+
+import DrinkForm from "../../components/drink-form";
+import Header from "../../../../components/ui/header";
 import Container from "../../components/container";
 
 export default async function Drinks() {
-  const typeOfDrinks = await prisma.typeDrink.findMany();
+  const types = await prisma.typeDrink.findMany();
 
   return (
     <>
@@ -15,7 +17,7 @@ export default async function Drinks() {
         <Separator />
 
         <div className="w-full flex justify-center mt-4">
-          <DrinkForm typeOfDrinks={typeOfDrinks} />
+          <DrinkForm type={types} />
         </div>
       </Container>
     </>

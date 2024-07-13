@@ -26,16 +26,16 @@ import { useToast } from "@/components/ui/use-toast";
 
 type ProductFormValues = z.infer<typeof formSchema>;
 
-interface DrinkType {
+interface Type {
   id: string;
   nameOfType: string;
 }
 
 interface DrinkFormProps {
-  typeOfDrinks: DrinkType[];
+  type: Type[];
 }
 
-export default function DrinkForm({ typeOfDrinks }: DrinkFormProps) {
+export default function DrinkForm({ type }: DrinkFormProps) {
   const { toast } = useToast();
 
   const form = useForm<ProductFormValues>({
@@ -185,7 +185,7 @@ export default function DrinkForm({ typeOfDrinks }: DrinkFormProps) {
                   </SelectTrigger>
                 </FormControl>
                 <SelectContent>
-                  {typeOfDrinks.map((type) => (
+                  {type.map((type) => (
                     <SelectItem key={type.id} value={type.id}>
                       {type.nameOfType}
                     </SelectItem>
@@ -198,7 +198,7 @@ export default function DrinkForm({ typeOfDrinks }: DrinkFormProps) {
         />
         <div className="w-full flex justify-end">
           <Button type="submit" className="mt-4">
-            Enviar
+            Crear
           </Button>
         </div>
       </form>

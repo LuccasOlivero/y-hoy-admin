@@ -6,6 +6,7 @@ import Header from "@/components/ui/header";
 import { columns } from "./column";
 
 interface DrinksClient {
+  id: string;
   name: string;
   description: string;
   price: number;
