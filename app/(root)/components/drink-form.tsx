@@ -65,7 +65,10 @@ export default function DrinkForm({ type }: DrinkFormProps) {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="w-full max-w-sm">
+      <form
+        onSubmit={form.handleSubmit(onSubmit)}
+        className="w-full grid grid-cols-3 gap-x-2 gap-y-4"
+      >
         <FormField
           control={form.control}
           name="name"
@@ -196,8 +199,8 @@ export default function DrinkForm({ type }: DrinkFormProps) {
             </FormItem>
           )}
         />
-        <div className="w-full flex justify-end">
-          <Button type="submit" className="mt-4">
+        <div className="w-full flex justify-end items-end col-span-2 ">
+          <Button type="submit" className="mt-4 px-9">
             Crear
           </Button>
         </div>

@@ -4,6 +4,7 @@ import { Separator } from "@/components/ui/separator";
 import Header from "@/components/ui/header";
 
 import { columns } from "./column";
+import Link from "next/link";
 
 interface DrinksClient {
   id: string;
@@ -24,8 +25,14 @@ export default function DrinksClient({ data }: DataTableProps) {
   return (
     <>
       <div className="flex justify-between items-center uppercase">
-        <Header>Bebidas</Header>
-        <Button>Agregar nueva bebida</Button>
+        <div>
+          <Link href="/">Y HOY</Link>
+          <Header>Bebidas</Header>
+        </div>
+
+        <Link href="/new-drink">
+          <Button>Agregar nueva bebida</Button>
+        </Link>
       </div>
 
       <Separator className="bg-[#A98A4D]" />

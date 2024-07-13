@@ -22,7 +22,13 @@ export default function Home() {
       <Container>
         <Logo />
 
-        <Header>Administrador</Header>
+        <div>
+          <Header>Administrador</Header>
+          <h3 className="text-lg font-normal text-[#A98A4D]">
+            Bienvenido a la aplicación de administración de bebidas donde podes
+            crear, editar y eliminar bebidas.
+          </h3>
+        </div>
 
         <Separator />
 

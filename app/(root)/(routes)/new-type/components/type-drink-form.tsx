@@ -50,24 +50,29 @@ export default function TypeDrinkForm() {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="w-full max-w-sm">
-        <FormField
-          control={form.control}
-          name="typeName"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel className="text-[#267b40] font-bold text-base">
-                Nombre del tipo de bebida
-              </FormLabel>
-              <FormControl>
-                <Input placeholder="Ej: Espumante" {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
+      <form
+        onSubmit={form.handleSubmit(onSubmit)}
+        className="w-full flex justify-start"
+      >
+        <div className="w-full">
+          <FormField
+            control={form.control}
+            name="typeName"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className="text-[#267b40] font-bold text-base">
+                  Nombre del tipo de bebida
+                </FormLabel>
+                <FormControl>
+                  <Input placeholder="Ej: Espumante" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+        </div>
 
-        <div className="w-full flex justify-end">
+        <div className="w-full flex items-end ml-4">
           <Button type="submit" className="mt-4">
             Crear
           </Button>
