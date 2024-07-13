@@ -17,8 +17,6 @@ export default function Home() {
   //   return null;
   // }
 
-  const btnStyles = "bg-[#267b40] hover:bg-[#1e5b2f]";
-
   return (
     <div className="flex flex-col items-center w-full">
       <Container>
@@ -30,15 +28,15 @@ export default function Home() {
 
         <div className="flex flex-wrap gap-2 mt-4">
           <Link href="/new-drink">
-            <Button className={btnStyles}>Crear una bebida</Button>
+            <Button>Crear una bebida</Button>
           </Link>
 
           <Link href="/drinks">
-            <Button className={btnStyles}>ver todas las bebidas</Button>
+            <Button>ver todas las bebidas</Button>
           </Link>
 
           <Link href="/new-type">
-            <Button className={btnStyles}>Crear un tipo de bebida</Button>
+            <Button>Crear un tipo de bebida</Button>
           </Link>
         </div>
       </Container>

@@ -24,9 +24,7 @@ export default function DrinksClient({ data }: DataTableProps) {
     <>
       <div className="flex justify-between items-center uppercase">
         <Header>Bebidas</Header>
-        <Button className="bg-[#267b40] hover:bg-[#1e5b2f]">
-          Agregar nueva bebida
-        </Button>
+        <Button>Agregar nueva bebida</Button>
       </div>
 
       <Separator className="bg-[#A98A4D]" />
