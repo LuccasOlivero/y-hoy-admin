@@ -20,17 +20,16 @@ export default function Home() {
   return (
     <div className="flex flex-col items-center w-full">
       <Container>
-        <Logo />
-
-        <div>
+        <div className="flex">
+          <Logo />
           <Header>Administrador</Header>
-          <h3 className="text-lg font-normal text-[#A98A4D]">
-            Bienvenido a la aplicación de administración de bebidas donde podes
-            crear, editar y eliminar bebidas.
-          </h3>
         </div>
+        <h3 className="text-lg font-normal text-[#A98A4D]">
+          Bienvenido a la aplicación de administración donde podes crear, editar
+          y eliminar bebidas.
+        </h3>
 
-        <Separator />
+        <Separator className="bg-[#A98A4D]" />
 
         <div className="flex flex-wrap gap-2 mt-4">
           <Link href="/new-drink">
