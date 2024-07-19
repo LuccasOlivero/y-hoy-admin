@@ -1,12 +1,13 @@
 import prisma from "@/lib/db";
+import Link from "next/link";
 
 import { Separator } from "@/components/ui/separator";
+import Header from "@/components/ui/header";
+import { Button } from "@/components/ui/button";
 
 import DrinkForm from "../../components/drink-form";
-import Header from "../../../../components/ui/header";
 import Container from "../../components/container";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
+import Logo from "../../components/logo";
 
 export default async function Drinks() {
   const types = await prisma.typeDrink.findMany();
@@ -14,15 +15,19 @@ export default async function Drinks() {
   return (
     <>
       <Container>
-        <div className="flex justify-between items-center">
-          <div>
-            <Link href="/">Y HOY</Link>
-            <Header>Crear una bebida</Header>
-          </div>
-
-          <Link href="/drinks">
-            <Button>Ver todas las bebidas</Button>
+        <div className="grid">
+          <Link href="/">
+            <Logo />
           </Link>
+
+          <div className="flex w-full justify-between items-center">
+            {/* @ts-ignore */}
+            <Header>Crear una bebida ({types.length})</Header>
+
+            <Link href="/drinks">
+              <Button>Ver todas las bebidas</Button>
+            </Link>
+          </div>
         </div>
 
         <h3 className="text-lg font-normal text-[#A98A4D]">

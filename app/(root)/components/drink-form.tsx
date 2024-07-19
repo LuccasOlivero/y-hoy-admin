@@ -44,7 +44,6 @@ export default function DrinkForm({ type }: DrinkFormProps) {
 
   const onSubmit = async (data: ProductFormValues) => {
     try {
-      //TODO: add validation and fix api call
       await axios({
         method: "POST",
         url: `/api/drink`,
@@ -52,7 +51,7 @@ export default function DrinkForm({ type }: DrinkFormProps) {
       });
 
       toast({
-        title: "Bebida creada exitosamente",
+        title: "Bebida creada exitosamente ✅",
       });
     } catch (e) {
       toast({

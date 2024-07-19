@@ -1,8 +1,12 @@
 "use client";
 
-import { useForm } from "react-hook-form";
 import * as z from "zod";
+import axios from "axios";
+import { useParams, useRouter } from "next/navigation";
+
+import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -13,7 +17,6 @@ import {
   FormLabel,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import axios from "axios";
 import { formSchema } from "@/constants/schema";
 import {
   Select,
@@ -24,7 +27,6 @@ import {
 } from "@/components/ui/select";
 import { useToast } from "@/components/ui/use-toast";
 import Header from "@/components/ui/header";
-import { redirect, useParams, useRouter } from "next/navigation";
 
 type ProductFormValues = z.infer<typeof formSchema>;
 
@@ -51,6 +53,7 @@ interface DrinkFormProps {
 
 export default function DrinkForm({ type, initialData }: DrinkFormProps) {
   const { toast } = useToast();
+
   const params = useParams();
   const router = useRouter();
 
@@ -80,7 +83,6 @@ export default function DrinkForm({ type, initialData }: DrinkFormProps) {
 
   const onSubmit = async (data: ProductFormValues) => {
     try {
-      //TODO: add validation and fix api call
       if (initialData) {
         await axios({
           method: "PATCH",
@@ -98,7 +100,7 @@ export default function DrinkForm({ type, initialData }: DrinkFormProps) {
       router.push("/");
 
       toast({
-        title: "Bebida creada exitosamente",
+        title: "Bebida creada exitosamente ✅",
       });
     } catch (e) {
       toast({

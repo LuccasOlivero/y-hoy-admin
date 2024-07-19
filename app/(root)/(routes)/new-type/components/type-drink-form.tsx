@@ -37,7 +37,7 @@ export default function TypeDrinkForm() {
       });
 
       toast({
-        title: "Tipo de bebida creada exitosamente",
+        title: "Tipo de bebida creada exitosamente ✅",
       });
     } catch (e) {
       toast({

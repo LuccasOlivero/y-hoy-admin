@@ -2,13 +2,12 @@ import prisma from "@/lib/db";
 import DrinkForm from "./components/drink-form";
 
 const DrinkPage = async ({ params }: { params: { drinkId: string } }) => {
+  const types = await prisma.typeDrink.findMany();
   const drink = await prisma.drink.findUnique({
     where: {
       id: params.drinkId,
     },
   });
-
-  const types = await prisma.typeDrink.findMany();
 
   return (
     <div className="flex-col">
